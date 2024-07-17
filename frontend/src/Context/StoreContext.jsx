@@ -4,13 +4,13 @@ import axios from "axios";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-
-    const url = "http://localhost:4000"
+    const url = import.meta.env.VITE_API_URL; // Use environment variable
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
     const currency = "₹";
     const deliveryCharge = 50;
+
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
